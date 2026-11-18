@@ -12,7 +12,7 @@
       generated = pkgs.runCommand "harness-nexus-library-generated" {
         nativeBuildInputs = [ ethos.packages.${pkgs.stdenv.hostPlatform.system}.ethos-zero ];
       } ''
-        ethos-zero "Generate.{ ${./ethos/library.ethos} $PWD/generated }"
+        ethos-zero "Generate.{ ${./ethos}/library.ethos $PWD/generated }"
         diff -u ${./src/generated/library.rs} generated/library.rs
         touch "$out"
       '';
