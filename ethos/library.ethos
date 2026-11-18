@@ -1,0 +1,35 @@
+Library
+[ flow:[ FlowId ] ]
+[ Session.String
+  FilePath.String
+  Tokens.Integer
+  Response.String
+  WorkId.String
+  WorkKind.[ Shell Subagent Monitor Workflow ]
+  BackgroundWork.{ WorkId WorkKind Description.String }
+  Trigger.[ Manual Automatic ]
+  Compaction.{ Trigger Option<Tokens> }
+  Failure.String
+  EndReason.[ Exited Cleared Died ]
+  Event.[ Started
+          PromptSubmitted
+          ToolUsed
+          PermissionAsked
+          Responded.Response
+          InFlight.Vector<BackgroundWork>
+          WorkStarted.BackgroundWork
+          WorkEnded.WorkId
+          TurnEnded
+          Interrupted
+          Failed.Failure
+          ContextSize.Tokens
+          Compacted.Compaction
+          Ended.EndReason ]
+  State.[ Dry Flowing.Flow Ended ]
+  Flow.[ Working Rested Waiting Blocked ]
+  Observed.{ FlowId State Tokens Vector<BackgroundWork> } ]
+[ Observable.[ events.[ Vector<Event> ] ]
+  Identifiable.[ flow_id.[ FlowId ] ]
+  Transitionable.[ after!{ [ Event ] [ Option<Event> ] } ] ]
+[ Session.[ Identifiable ]
+  Observed.[ Transitionable ] ]
