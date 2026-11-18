@@ -1,6 +1,6 @@
 Library
 [ flow:[ FlowId ] ]
-[ Session.String
+[ SessionId.String
   FilePath.String
   Tokens.Integer
   Response.String
