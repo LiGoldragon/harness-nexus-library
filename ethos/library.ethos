@@ -29,7 +29,5 @@ Library
   Flow.[ Working Rested Waiting Blocked ]
   Observed.{ FlowId State Tokens Vector<BackgroundWork> } ]
 [ Observable.[ events.[ Vector<Event> ] ]
-  Identifiable.[ flow_id.[ FlowId ] ]
   Transitionable.[ after!{ [ Event ] [] } ] ]
-[ Session.[ Identifiable ]
-  Observed.[ Transitionable ] ]
+[ Observed.[ Transitionable ] ]
