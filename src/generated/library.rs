@@ -76,6 +76,7 @@ pub enum EndReason {
 #[cfg_attr(feature = "datom", derive(datom_codec::Datomizable, datom_codec::Composing))]
 pub enum Event {
     Started,
+    Resumed,
     PromptSubmitted,
     ToolUsed,
     PermissionAsked,
@@ -125,7 +126,16 @@ pub trait Transitionable {
     fn after(&mut self, input: Event);
 }
 #[rustfmt::skip]
+pub trait Identifiable {
+    fn identify(&self) -> flow::FlowId;
+}
+#[rustfmt::skip]
 const _: () = {
     fn assert_observed_transitionable<T: Transitionable>() {}
     let _ = assert_observed_transitionable::<Observed>;
+};
+#[rustfmt::skip]
+const _: () = {
+    fn assert_sessionid_identifiable<T: Identifiable>() {}
+    let _ = assert_sessionid_identifiable::<SessionId>;
 };

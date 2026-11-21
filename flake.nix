@@ -6,7 +6,7 @@
     cargoNix = ./Cargo.nix;
     extraChecks = { pkgs, toolchain, ... }: {
       fmt = pkgs.runCommand "harness-nexus-library-fmt" { nativeBuildInputs = [ toolchain ]; } ''
-        rustfmt --edition 2024 --check ${./src}/lib.rs ${./src}/transition.rs
+        rustfmt --edition 2024 --check ${./src}/lib.rs ${./src}/identify.rs ${./src}/transition.rs
         touch "$out"
       '';
       generated = pkgs.runCommand "harness-nexus-library-generated" {

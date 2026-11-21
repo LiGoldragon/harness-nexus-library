@@ -12,6 +12,7 @@ Library
   Failure.String
   EndReason.[ Exited Cleared Died ]
   Event.[ Started
+          Resumed
           PromptSubmitted
           ToolUsed
           PermissionAsked
@@ -29,5 +30,7 @@ Library
   Flow.[ Working Rested Waiting Blocked ]
   Observed.{ FlowId State Tokens Vector<BackgroundWork> } ]
 [ Observable.[ events.[ Vector<Event> ] ]
-  Transitionable.[ after!{ [ Event ] [] } ] ]
-[ Observed.[ Transitionable ] ]
+  Transitionable.[ after!{ [ Event ] [] } ]
+  Identifiable.[ identify.[ FlowId ] ] ]
+[ Observed.[ Transitionable ]
+  SessionId.[ Identifiable ] ]

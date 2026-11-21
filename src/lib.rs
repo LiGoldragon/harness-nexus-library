@@ -3,6 +3,7 @@
 mod generated {
     pub mod library;
 }
+mod identify;
 mod transition;
 
 pub use generated::library::*;

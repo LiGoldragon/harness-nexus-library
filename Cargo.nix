@@ -451,7 +451,7 @@ rec {
       };
       "harness-nexus-library" = rec {
         crateName = "harness-nexus-library";
-        version = "0.1.0";
+        version = "0.3.0";
         edition = "2024";
         src = lib.cleanSourceWith { filter = sourceFilter;  src = ./.; };
         libName = "harness";
